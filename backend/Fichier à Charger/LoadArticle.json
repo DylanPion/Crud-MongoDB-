@@ -1,0 +1,68 @@
+{
+    "$jsonSchema": {
+        "bsonType": "object",
+        "required": [
+            "title",
+            "description",
+            "createdAt",
+            "categoryId",
+            "authorId",
+            "comments",
+            "tags"
+        ],
+        "properties": {
+            "title": {
+                "bsonType": "string",
+                "description": "must be a string and is required",
+                "unique": true
+            },
+            "description": {
+                "bsonType": "string",
+                "description": "must be a string and is required"
+            },
+            "createdAt": {
+                "bsonType": "date",
+                "description": "must be a date and is required"
+            },
+            "categoryId": {
+                "bsonType": "objectId",
+                "description": "must be an objectId and is required"
+            },
+            "authorId": {
+                "bsonType": "objectId",
+                "description": "must be an objectId and is required"
+            },
+            "comments": {
+                "bsonType": "array",
+                "items": {
+                    "bsonType": "object",
+                    "required": [
+                        "text",
+                        "authorId",
+                        "createdAt"
+                    ],
+                    "properties": {
+                        "text": {
+                            "bsonType": "string",
+                            "description": "must be a string and is required"
+                        },
+                        "authorId": {
+                            "bsonType": "objectId",
+                            "description": "must be an objectId and is required"
+                        },
+                        "createdAt": {
+                            "bsonType": "date",
+                            "description": "must be a date and is required"
+                        }
+                    }
+                }
+            },
+            "tags": {
+                "bsonType": "array",
+                "items": {
+                    "bsonType": "string"
+                }
+            }
+        }
+    }
+}
